@@ -56,5 +56,63 @@ _sudo unlink /etc/nginx/sites-enabled/default_ - unlink the default host listeni
 _sudo echo "some data" >> /var/www/lempproject/index.html_ - create test page\
 _curl http://localhost:80_ - test the site
 
+![lemp_html](lemp_html.jpg)
+
 5. test the PHP on NGINX
 
+_sudo nano /var/www/lempproject/info.php_ - create a php file and fill as below
+
+```php
+    <?php
+    phpinfo()>
+```
+
+### Visit the site on the browser with http://ip-address/info.php
+
+![lempphppage](lempphppage.jpg)
+
+6. retrieve data from MySQL with PHP
+
+_sudo mysql_ - enter mysql with root user\
+_CREATE DATABASE db\_name;_ - create a new database\
+_CREATE USER 'username'@'%' IDENTIFIED WITH mysql\_native\_password BY 'password';_ - create user\
+_GRANT ALL ON 'db\_name.*' TO username'@'%';_ - grant access to the db for user
+
+### Exit MySQL and login with the new user credentials
+
+_mysql -u username -p password_ - login\
+_SHOW databases;_ - show databases\
+_CREATE TABLE db\_name.table\_name (column1 type, column2 type);_ - create table\
+_INSERT INTO db\_name.table\_name (column1, column2) VALUES ('value1', 'value2');_ - insert values
+
+### Exit MySQL
+
+_sudo mkdir /var/www/lempproject/todo\list.php_ make a directory for the db connection test file and fill with:
+
+```php
+   <?php
+$user = "example_user";
+$password = "password";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+} 
+```
+
+### Test the connection via the ip/todo_list.php
+
+![lemp_todo](lemp_todo.jpg)
+
+### Diagram
+
+![lemparchitecture](lemparchitecture.jpg)
