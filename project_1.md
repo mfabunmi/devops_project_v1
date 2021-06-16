@@ -4,8 +4,6 @@
 
 ![AWS Instance](AWS_Instance.jpg)
 
-_sudo apt install apache2_ - install apache2
-_sudo systemctl status apache2_ - check the status of the installation
-_curl https://localhhost:80_ - check if the port is open
-
-_Italics_
+_sudo apt install apache2_ - install apache2\
+_sudo systemctl status apache2_ - check the status of the installation\
+_curl https://localhhost:80_ - check if the port is open\
