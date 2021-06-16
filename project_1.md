@@ -2,7 +2,7 @@
 
 1. I installed Ubuntu 20.0 on AWS EC2 instance
 
-![AWS Instance](AWS_Instance.jpg)
+![AWS Instance](AWS_Instance.JPG)
 
 1. Installed Apache2 and tested the ip address
 
