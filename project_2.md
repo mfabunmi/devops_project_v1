@@ -2,10 +2,10 @@
 
 1. Install NGINX
 
-_sudo apt update_ - update the repo\
-_sudo apt upgrade_ - upgrade to latest versions\
-_sudo apt install nginx_ - install NGINX\
-_curl http://localhost:80_ - test the webserver
+_sudo apt update_ - **update the repo**\
+_sudo apt upgrade_ - **upgrade to latest versions**\
+_sudo apt install nginx_ - **install NGINX**\
+_curl http://localhost:80_ - **test the webserver**
 
 ![nginx](nginx.JPG)
 
@@ -67,25 +67,25 @@ _sudo nano /var/www/lempproject/info.php_ - create a php file and fill as below
     phpinfo()>
 ```
 
-### Visit the site on the browser with http://ip-address/info.php
+Visit the site on the browser with http://ip-address/info.php
 
 ![lempphppage](lempphppage.jpg)
 
-6. retrieve data from MySQL with PHP
+1. retrieve data from MySQL with PHP
 
 _sudo mysql_ - enter mysql with root user\
 _CREATE DATABASE db\_name;_ - create a new database\
 _CREATE USER 'username'@'%' IDENTIFIED WITH mysql\_native\_password BY 'password';_ - create user\
 _GRANT ALL ON 'db\_name.*' TO username'@'%';_ - grant access to the db for user
 
-### Exit MySQL and login with the new user credentials
+Exit MySQL and login with the new user credentials
 
 _mysql -u username -p password_ - login\
 _SHOW databases;_ - show databases\
 _CREATE TABLE db\_name.table\_name (column1 type, column2 type);_ - create table\
 _INSERT INTO db\_name.table\_name (column1, column2) VALUES ('value1', 'value2');_ - insert values
 
-### Exit MySQL
+Exit MySQL
 
 _sudo mkdir /var/www/lempproject/todo\list.php_ make a directory for the db connection test file and fill with:
 
@@ -109,10 +109,10 @@ try {
 } 
 ```
 
-### Test the connection via the ip/todo_list.php
+Test the connection via the ip/todo_list.php
 
 ![lemp_todo](lemp_todo.jpg)
 
-### Diagram
+### Architecture
 
 ![lemparchitecture](lemparchitecture.jpg)
